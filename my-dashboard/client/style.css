@@ -1,0 +1,59 @@
+body {
+    background-color: #000000;
+    font-family: "Space Mono", monospace;
+    color: #00FF41;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.container .filters {
+    margin-top: 20px;
+    margin-bottom: 60px !important; /* Ensure larger spacing between filters and Key Metrics */
+}
+
+.container #key-metrics {
+    margin-top: 40px !important; /* Additional spacing above the Key Metrics section */
+    margin-bottom: 20px;
+}
+
+.key-metrics div {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #121212;
+    border: 1px solid #2A2A2A;
+    border-radius: 4px;
+}
+
+/* Fix for DataTables Pagination Spacing */
+.dataTables_wrapper .dataTables_paginate {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    margin: 0 12px;
+    padding: 5px 10px;
+    border: 1px solid #2A2A2A;
+    border-radius: 4px;
+    background-color: #00D4FF;
+    color: #000000;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #000000;
+    color: #00FF41;
+    border-color: #00FF41;
+    box-shadow: 0 0 8px #2A2A2A;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    font-weight: bold;
+    color: #00FF41;
+    border-color: #00FF41;
+}
