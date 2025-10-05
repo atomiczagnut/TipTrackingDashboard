@@ -1,4 +1,5 @@
-Tip Tracking Dashboard
+# Tip Tracking Dashboard
+
 by Colin Trierweiler
 
 This project is based off of the "Build a Data Dashboard" project at https://towardsdatascience.com/build-a-data-dashboard-using-html-css-javascript by Thomas Reid.
