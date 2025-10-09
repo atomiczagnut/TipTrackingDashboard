@@ -2,7 +2,7 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
 // The SQLite database
 const DB_PATH = "C:\\Users\\atomi\\OneDrive\\Code\\JavaScript\\TipTrackingDashboard\\tip_data.db";
@@ -17,7 +17,7 @@ app.get('/data', (req, res) => {
             console.error("Error connecting to database:", err.message);
             res.status(500).json({ error: "Database connection failed" });
             return;
-        };
+        }
     });
 
     // Query the database
@@ -28,13 +28,13 @@ app.get('/data', (req, res) => {
             res.status(500).json({ error: "Query failed" });
         } else {
             res.json(rows); // Send the query result as JSON
-        };
+        }
     });
 
     db.close((err) => {
         if (err) {
             console.error("Error closing database:", err.message);
-        };
+        }
     });
 });
 
