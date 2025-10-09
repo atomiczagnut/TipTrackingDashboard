@@ -46,15 +46,15 @@ h1 {
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-    background-color: #000000;
-    color: #00FF41;
+    background-color: #00FF41;
+    color: #000000;
     border-color: #000000;
     box-shadow: 0 0 8px #2A2A2A;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
     font-weight: bold;
-    color: #00FF41;
+    color: #000000;
     border-color: #00FF41;
 }
 
