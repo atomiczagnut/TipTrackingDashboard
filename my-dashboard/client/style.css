@@ -39,7 +39,7 @@ h1 {
     padding: 5px 10px;
     border: 1px solid #2A2A2A;
     border-radius: 4px;
-    background-color: #00D4FF;
+    background-color: #008F11;
     color: #000000;
     text-decoration: none;
     display: inline-block;
@@ -48,7 +48,7 @@ h1 {
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
     background-color: #000000;
     color: #00FF41;
-    border-color: #00FF41;
+    border-color: #000000;
     box-shadow: 0 0 8px #2A2A2A;
 }
 
