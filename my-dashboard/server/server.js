@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+import { join } from 'path';
 const app = express();
 const PORT = 3000;
 
@@ -8,7 +8,7 @@ const PORT = 3000;
 const DB_PATH = "C:\\Users\\atomi\\OneDrive\\Code\\JavaScript\\TipTrackingDashboard\\tip_data.db";
 
 // Serve static files from the client directory
-app.use(express.static(path.join(__dirname, '..', 'client')));
+app.use(express.static(join(__dirname, '..', 'client')));
 
 // Route to fetch data from database
 app.get('/data', (req, res) => {
@@ -40,7 +40,7 @@ app.get('/data', (req, res) => {
 
 // Catch-all route to serve the main HTML file
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
+    res.sendFile(join(__dirname, '..', 'client', 'index.html'));
 });
 
 // Start the server
