@@ -65,7 +65,7 @@ function setupFilters(data) {
     // Set up category dropdown change listener
     const categoryFilter = document.getElementById("category-filter");
     if (categoryFilter) {
-        categoryFilter.onChange = () => filterAndRenderData(data);
+        categoryFilter.onchange = () => filterAndRenderData(data);
     }
 }
 
@@ -78,7 +78,7 @@ function initializeDashboard(data) {
 // Apply filters and update key metrics, chart, and table
 function filterAndRenderData(data) {
     const chartType = document.getElementById('chart-type-selector').value;
-    const startDate = document.getElementbyId('start-date')._flatpickr.selectedDates[0];
+    const startDate = document.getElementById('start-date')._flatpickr.selectedDates[0];
     const endDate = document.getElementById('end-date')._flatpickr.selectedDates[0];
     const selectedCategory = document.getElementById('category-filter').value;
 
