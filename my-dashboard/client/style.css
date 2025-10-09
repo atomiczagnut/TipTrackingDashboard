@@ -57,3 +57,59 @@ h1 {
     color: #00FF41;
     border-color: #00FF41;
 }
+
+/* DataTable Styling */
+#data-table {
+    width: 100% !important;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#data-table thead th {
+    background-color: #008F11 !important;
+    color: #000000 !important;
+    border: 1px solid #00FF41 !important;
+    padding: 12px !important;
+    text-align: left;
+    font-weight: bold;
+}
+
+#data-table tbody td {
+    border: 1px solid #2A2A2A !important;
+    padding: 10px !important;
+    background-color: #121212;
+    color: #00FF41;
+}
+
+/* Striped rows */
+#data-table tbody tr:nth-child(odd) td {
+    background-color: #1A1A1A;
+}
+
+#data-table tbody tr:nth-child(even) td {
+    background-color: #0D0D0D;
+}
+
+#data-table tbody tr:hover td {
+    background-color: #1F3A1F !important;
+    cursor: pointer;
+}
+
+/* DataTables wrapper styling */
+.dataTables_wrapper {
+    color: #00FF41;
+}
+
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_filter label {
+    color: #00FF41 !important;
+}
+
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter input {
+    background-color: #121212;
+    color: #00FF41;
+    border: 1px solid #2A2A2A;
+    padding: 5px;
+}
