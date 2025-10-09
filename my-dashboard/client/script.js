@@ -103,8 +103,8 @@ function updateKeyMetrics(data) {
     const averageTips = totalTips / data.length;
 
     // Display metrics in the DOM
-    document.getElementById("total-tips").textContent = "$${totalTips.toFixed(2)}";
-    document.getElementById("average-tips").textContent = "$${averageTips.toFixed(2)}";
+    document.getElementById("total-tips").textContent = `$${totalTips.toFixed(2)}`;
+    document.getElementById("average-tips").textContent = `$${averageTips.toFixed(2)}`;
 }
 
 // Draw the selected chart type using Chart.js
