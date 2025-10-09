@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Initlialize Flatpickr date pickers and category filter
 function setupFilters(data) {
     // Convert date strings to JS Date objects
-    const dates = data.map((item) => new Date(item.order_date.split('/').reverse().join('-')));
+    const dates = data.map((item) => new Date(item.date));
     const minDate = new Date(Math.min(...dates));
     const maxDate = new Date(Math.max(...dates));
 
