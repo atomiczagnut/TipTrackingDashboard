@@ -6,9 +6,17 @@ conn = sqlite3.connect(DATABASE_NAME)
 
 cursor = conn.cursor()
 
+create_table_users = '''
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user TEXT UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL
+);
+'''
+
 create_table_query = '''
 CREATE TABLE IF NOT EXISTS tips (
-    shift_id INTEGER PRIMARY KEY,
+    shift_id INTEGER PRIMARY KEY AUTOINCREMENT,
     date TEXT,
     day_of_week TEXT,
     am_or_pm TEXT,
