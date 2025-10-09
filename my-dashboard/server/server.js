@@ -39,11 +39,11 @@ app.get('/data', (req, res) => {
 });
 
 // Catch-all route to serve the main HTML file
-app.get('*', (req, res) => {
-    res.sendFile(join(__dirname, '..', 'client', 'index.html'));
-});
+//app.get('*', (req, res) => {
+//    res.sendFile(join(__dirname, '..', 'client', 'index.html'));
+//});
 
 // Start the server
 app.listen(PORT, () => {
-    console.log("Server running at http://localhost:`${PORT}`");
+    console.log(`Server running at http://localhost:${PORT}`);
 });
