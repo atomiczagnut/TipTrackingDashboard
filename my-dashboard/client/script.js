@@ -84,11 +84,11 @@ function filterAndRenderData(data) {
 
     // Filter date by category
     const filteredData = data.filter((item) =>  {
-        const itemDate = new Date(item.order_date.split('/').reverse().join('-'));
+        const itemDate = new Date(item.date);
         return (
             itemDate >= startDate &&
-            itemDate <= endDate &&
-            (selectedCategory === 'all' || item.categories === selectedCategory)
+            itemDate <= endDate
+            //(selectedCategory === 'all' || item.categories === selectedCategory)
         );
     });
 
@@ -99,7 +99,7 @@ function filterAndRenderData(data) {
 
 // Update dashboard metrics
 function updateKeyMetrics(data) {
-    const totalTips = data.reduce((acc, item) => acc + parseFloat(item.total), 0);
+    const totalTips = data.reduce((acc, item) => acc + parseFloat(item.tips_earned), 0);
     const averageTips = totalTips / data.length;
 
     // Display metrics in the DOM
@@ -121,10 +121,10 @@ function drawChart(data, elementId, chartType) {
             chartInstance = new Chart(ctx, {
                 type: "line",
                 data: {
-                    labels: data.map((item) => item.order_date),
+                    labels: data.map((item) => item.date),
                     datasets: [{
                         label: "Tips Over Time",
-                        data: data.map((item) => parseFloat(item.total)),
+                        data: data.map((item) => parseFloat(item.tips_earned)),
                         fill: false,
                         borderColor: "rgb(75, 192, 192)",
                         tension: 0.1,
@@ -177,8 +177,8 @@ function populateCategoryFilter(data) {
     categoryFilter.appendChild(new Option("All Categories", "all", true, true));
 
     // Extract unique categories
-    const categories = new Set(data.map((item) => item.categories));
-    categories.forEach((category) => {
-        categoryFilter.appendChild(new Option(category, category));
-    });
+    //const categories = new Set(data.map((item) => item.categories));
+    //categories.forEach((category) => {
+    //    categoryFilter.appendChild(new Option(category, category));
+    //});
 }
