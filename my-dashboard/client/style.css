@@ -43,6 +43,7 @@ h1 {
     color: #000000;
     text-decoration: none;
     display: inline-block;
+    transition: transform 0.3s ease-in-out;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
@@ -50,12 +51,13 @@ h1 {
     color: #000000;
     border-color: #000000;
     box-shadow: 0 0 8px #2A2A2A;
+    transform: scale(1.1);
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
     font-weight: bold;
     color: #000000;
-    border-color: #00FF41;
+    border-color: #000000;
 }
 
 /* DataTable Styling */
