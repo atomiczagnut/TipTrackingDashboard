@@ -126,7 +126,7 @@ function drawChart(data, elementId, chartType) {
                         label: "Tips Over Time",
                         data: data.map((item) => parseFloat(item.tips_earned)),
                         fill: false,
-                        borderColor: "rgb(75, 192, 192)",
+                        borderColor: "rgb(0, 255, 65)",
                         tension: 0.1,
                     }],
                 },
