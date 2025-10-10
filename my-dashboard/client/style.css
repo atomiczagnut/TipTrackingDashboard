@@ -48,6 +48,57 @@ h1 {
     transform: scale(1.1);
 }
 
+/* Style all select/option elements */
+
+select.form-control,
+#category-filter,
+#chart-type-selector,
+#shift-day,
+#shift-period {
+    background-color: #0D2818;
+    color: #00FF41;
+    border: 2px solid #008F11;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+select.form-control:focus,
+#category-filter:focus,
+#chart-type-selector:focus,
+#shift-day:focus,
+#shift-period:focus {
+    background-color: #1A4A2E;
+    border-color: #00FF41;
+    box-shadow: 0 0 8px #1A4A2E;
+    outline: none;
+} 
+
+/* Style the actual option elements */
+select.form-control option,
+#category-filter option,
+#chart-type-selector option,
+#shift-day option,
+#shift-period option,
+input[type="text"].form-control,
+input[type="date"].form-control,
+input[type="number"].form-control,
+#start-date,
+#end-date,
+#shift-hours,
+#shift-tips {
+    background-color: #0D2818;
+    color: #00FF41;
+    padding: 8px;
+}
+
+/* Style the modal close button (X) */
+.modal-header .close {
+    color: #00FF41 !important;
+    text-shadow: none;
+    opacity: 1;
+    font-size: 24px;
+}
+
 /* Fix for DataTables Pagination Spacing */
 .dataTables_wrapper .dataTables_paginate {
     text-align: center;
