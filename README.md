@@ -8,7 +8,7 @@ This project is based off of the "Build a Data Dashboard" project at https://tow
 
 I have changed it to track the tips I make as a restaurant server.
 
-Now it is a web-based dashboard for restaurant servers to track and analyze their tips across different shifts, days, and time periods. Visualize earnings patterns to optimize work schedules and maximize income.
+Now it is a web-based dashboard for restaurant servers to track and analyze their tips across different shifts, days, and time periods. You can visualize earnings patterns to optimize work schedules and maximize income.
 
 I have changed the mock sales data to include the real data of the tips I made last week, plus other data about how many hours I worked, what day of the week it was, and whether the shift was AM or PM.
 
@@ -27,7 +27,7 @@ I am releasing it under a GNU General Public License, so others may play with th
 
 ## Tech Stack
 
-I am using basic HTML and CSS with an SQLite3 database.  I am using Node.js for the backend.  There is also Bootstrap and Chart.js, for the buttons and charts, respectively.
+I am using basic HTML and CSS with an SQLite3 database.  I've got Node.js for the backend.  There is also Bootstrap and Chart.js, for the buttons and charts, respectively.
 
 ## Future Ideas
 
