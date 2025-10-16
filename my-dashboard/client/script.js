@@ -1,3 +1,17 @@
+import { supabase } from './db/supabase.js';
+
+// TEMPORARY TEST - Remove after testing
+console.log("Testing Supabase connection...");
+console.log("Supabase URL:", import.meta.env.VITE_SUPABASE_URL);
+
+supabase.from('tips').select('*').limit(1).then(({ data, error }) => {
+    if (error) {
+        console.error("Client connection failed:", error);
+    } else {
+        console.log("Client connection successful!", data);
+    }
+});
+
 let chartInstance = null; // Global variable to store the current chart.js instance
 
 // Wait until the DOM is fully loaded

@@ -4,7 +4,14 @@
   "description": "Frontend for Tip Tracking Dashboard - A web app for restaurant servers to track and analyze tips",
   "author": "Colin Trierweiler",
   "license": "GPL-3.0",
-  "keywords": ["tips", "restaurant", "server", "dashboard", "earnings", "tracking"],
+  "keywords": [
+    "tips",
+    "restaurant",
+    "server",
+    "dashboard",
+    "earnings",
+    "tracking"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,6 +20,6 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.75.0",
-    "vite": "^5.0.0"
+    "vite": "^7.1.10"
   }
 }
