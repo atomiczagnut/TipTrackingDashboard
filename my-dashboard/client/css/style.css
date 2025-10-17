@@ -1,31 +1,81 @@
+/* ========================================
+   CSS VARIABLES - Brand Colors & Theme
+   ======================================== */
+:root {
+    /* Brand Colors */
+    --color-primary: #00FF41;        /* Bright green text */
+    --color-primary-dark: #008F11;   /* Dark green for buttons */
+    --color-background: #000000;     /* Pure black background */
+    --color-surface: #121212;        /* Slightly lighter black for cards */
+    --color-surface-light: #1A1A1A;  /* Even lighter for striped rows */
+    --color-surface-dark: #0D0D0D;   /* Darker for alternate rows */
+    --color-border: #2A2A2A;         /* Gray borders */
+    --color-border-active: #00FF41;  /* Active state borders */
+    
+    /* Input/Select Backgrounds */
+    --color-input-bg: #0D2818;       /* Dark green tint for inputs */
+    --color-input-focus: #1A4A2E;    /* Lighter green tint on focus */
+    --color-input-hover: #1F3A1F;    /* Hover state */
+    
+    /* Typography */
+    --font-family: "Space Mono", monospace;
+    
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    
+    /* Transitions */
+    --transition-fast: 0.3s ease-in-out;
+    
+    /* Shadows */
+    --shadow-glow: 0 0 8px var(--color-input-focus);
+    --shadow-glow-dark: 0 0 8px var(--color-border);
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
 body {
-    background-color: #000000;
-    font-family: "Space Mono", monospace;
-    color: #00FF41;
+    background-color: var(--color-background);
+    font-family: var(--font-family);
+    color: var(--color-primary);
 }
 
 h1 {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
 }
 
+h2 {
+    margin-top: var(--spacing-lg);
+}
+
+/* ========================================
+   LAYOUT - Container & Sections
+   ======================================== */
 .container .filters {
-    margin-top: 20px;
-    margin-bottom: 60px !important; /* Ensure larger spacing between filters and Key Metrics */
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
 }
 
 .container #key-metrics {
-    margin-top: 40px !important; /* Additional spacing above the Key Metrics section */
-    margin-bottom: 20px;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 .key-metrics div {
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #121212;
-    border: 1px solid #2A2A2A;
-    border-radius: 4px;
+    margin: var(--spacing-sm) 0;
+    padding: var(--spacing-sm);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
 }
 
 #key-metrics p {
@@ -33,23 +83,27 @@ h1 {
     font-size: 1.5em;
 }
 
+/* ========================================
+   BUTTONS
+   ======================================== */
 .btn {
     margin: 0 12px;
-    padding: 5px 10px;
-    border: 1px solid #2A2A2A;
-    border-radius: 4px;
-    background-color: #008F11;
-    color: #000000;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-primary-dark);
+    color: var(--color-background);
     text-decoration: none;
     display: inline-block;
-    transition: transform 0.3s ease-in-out;
+    transition: transform var(--transition-fast);
+    cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #00FF41;
-    color: #000000;
-    border-color: #000000;
-    box-shadow: 0 0 8px #2A2A2A;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border-color: var(--color-background);
+    box-shadow: var(--shadow-glow-dark);
     transform: scale(1.1);
 }
 
@@ -59,97 +113,93 @@ h1 {
     outline: none !important;
 }
 
-/* Style all select/option elements */
-
+/* ========================================
+   FORMS - Inputs, Selects, Textareas
+   ======================================== */
 select.form-control,
+input[type="text"].form-control,
+input[type="date"].form-control,
+input[type="number"].form-control,
 #category-filter,
 #chart-type-selector,
 #shift-day,
-#shift-period {
-    background-color: #0D2818;
-    color: #00FF41;
-    border: 2px solid #008F11;
-    border-radius: 4px;
+#shift-period,
+#start-date,
+#end-date,
+#shift-date,
+#shift-hours,
+#shift-tips {
+    background-color: var(--color-input-bg);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary-dark);
+    border-radius: var(--radius-sm);
     padding: 8px;
 }
 
 select.form-control:focus,
+input[type="text"].form-control:focus,
+input[type="date"].form-control:focus,
+input[type="number"].form-control:focus,
 #category-filter:focus,
 #chart-type-selector:focus,
 #shift-day:focus,
-#shift-period:focus {
-    background-color: #1A4A2E;
-    border-color: #00FF41;
-    box-shadow: 0 0 8px #1A4A2E;
+#shift-period:focus,
+#start-date:focus,
+#end-date:focus,
+#shift-date:focus,
+#shift-hours:focus,
+#shift-tips:focus {
+    background-color: var(--color-input-focus);
+    border-color: var(--color-border-active);
+    box-shadow: var(--shadow-glow);
     outline: none;
-} 
+}
 
-/* Style the actual option elements */
+/* Style option elements */
 select.form-control option,
 #category-filter option,
 #chart-type-selector option,
 #shift-day option,
-#shift-period option,
-input[type="text"].form-control,
-input[type="date"].form-control,
-input[type="number"].form-control,
-#start-date,
-#end-date,
-#shift-hours,
-#shift-tips {
-    background-color: #0D2818;
-    color: #00FF41;
+#shift-period option {
+    background-color: var(--color-input-bg);
+    color: var(--color-primary);
     padding: 8px;
 }
 
-/* Style the modal */
-.modal-content {
-    background-color: #000000;
-    border: 2px solid #2A2A2A;
-}
-
-/* Style the modal close button (X) */
+/* ========================================
+   MODAL
+   ======================================== */
 .modal-header .close {
-    color: #00FF41 !important;
+    color: var(--color-primary) !important;
     text-shadow: none;
     opacity: 1;
     font-size: 24px;
 }
 
-/* Fix for DataTables Pagination Spacing */
-.dataTables_wrapper .dataTables_paginate {
-    text-align: center;
-    margin-top: 10px;
+.modal-content {
+    background-color: var(--color-background);
+    border: 2px solid var(--color-border);
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-    margin: 0 12px;
-    padding: 5px 10px;
-    border: 1px solid #2A2A2A;
-    border-radius: 4px;
-    background-color: #008F11 !important;
-    color: #000000 !important;
-    cursor: pointer !important;
-    text-decoration: none;
-    display: inline-block;
-    transition: transform 0.3s ease-in-out;
+.modal-header {
+    border-bottom: 1px solid var(--color-border);
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-    background-color: #00FF41 !important;
-    color: #000000;
-    border-color: #000000;
-    box-shadow: 0 0 8px #2A2A2A;
-    transform: scale(1.1);
+.modal-footer {
+    border-top: 1px solid var(--color-border);
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
-    font-weight: bold;
-    color: #000000;
-    border-color: #000000;
+.modal-title {
+    color: var(--color-primary);
 }
 
-/* DataTable Styling */
+.modal-body label {
+    color: var(--color-primary);
+}
+
+/* ========================================
+   DATATABLES - Table Styling
+   ======================================== */
 #data-table {
     width: 100% !important;
     border-collapse: separate;
@@ -157,67 +207,120 @@ input[type="number"].form-control,
 }
 
 #data-table thead th {
-    background-color: #008F11 !important;
-    color: #000000 !important;
-    border: 1px solid #00FF41 !important;
+    background-color: var(--color-primary-dark) !important;
+    color: var(--color-background) !important;
+    border: 1px solid var(--color-border-active) !important;
     padding: 12px !important;
     text-align: left;
     font-weight: bold;
 }
 
 #data-table tbody td {
-    border: 1px solid #2A2A2A !important;
-    padding: 10px !important;
-    background-color: #121212;
-    color: #00FF41;
+    border: 1px solid var(--color-border) !important;
+    padding: var(--spacing-sm) !important;
+    background-color: var(--color-surface);
+    color: var(--color-primary);
 }
 
 /* Striped rows */
 #data-table tbody tr:nth-child(odd) td {
-    background-color: #1A1A1A;
+    background-color: var(--color-surface-light);
 }
 
 #data-table tbody tr:nth-child(even) td {
-    background-color: #0D0D0D;
+    background-color: var(--color-surface-dark);
 }
 
 #data-table tbody tr:hover td {
-    background-color: #1F3A1F !important;
+    background-color: var(--color-input-hover) !important;
     cursor: pointer;
 }
 
-/* DataTables wrapper styling */
+/* ========================================
+   DATATABLES - Wrapper & Controls
+   ======================================== */
 .dataTables_wrapper {
-    color: #00FF41;
+    color: var(--color-primary);
 }
 
 .dataTables_wrapper .dataTables_info,
 .dataTables_wrapper .dataTables_length label,
 .dataTables_wrapper .dataTables_filter label {
-    color: #00FF41 !important;
+    color: var(--color-primary) !important;
 }
 
-.dataTables_wrapper .dataTables_length select,
-.dataTables_wrapper .dataTables_filter input {
-    background-color: #121212;
-    color: #00FF41;
-    border: 1px solid #2A2A2A;
-    padding: 5px;
+/* Length (Show entries) select dropdown */
+.dataTables_wrapper .dataTables_length select {
+    background-color: var(--color-input-bg) !important;
+    color: var(--color-primary) !important;
+    border: 2px solid var(--color-primary-dark) !important;
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-xs);
 }
 
-/* DataTables search input
+.dataTables_wrapper .dataTables_length select:focus {
+    background-color: var(--color-input-focus) !important;
+    border-color: var(--color-border-active) !important;
+    outline: none;
+}
+
+/* Search input */
 .dataTables_wrapper .dataTables_filter input {
-    background-color: #0D2818;
-    color: #00FF41;
-    border: 2px solid #008F11;
-    border-radius: 4px;
-    padding: 5px 10px;
+    background-color: var(--color-input-bg) !important;
+    color: var(--color-primary) !important;
+    border: 2px solid var(--color-primary-dark) !important;
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
 }
 
 .dataTables_wrapper .dataTables_filter input:focus {
-    background-color: #0D2818;
-    color: #00FF41;
-    box-shadow: 0 0 08px #1A4A2E;
+    background-color: var(--color-input-focus) !important;
+    border-color: var(--color-border-active) !important;
+    box-shadow: var(--shadow-glow);
     outline: none;
 }
-*/
+
+/* ========================================
+   DATATABLES - Pagination
+   ======================================== */
+.dataTables_wrapper .dataTables_paginate {
+    text-align: center;
+    margin-top: var(--spacing-sm);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    margin: 0 12px !important;
+    padding: var(--spacing-xs) var(--spacing-sm) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: var(--radius-sm) !important;
+    background-color: var(--color-primary-dark) !important;
+    color: var(--color-background) !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: transform var(--transition-fast) !important;
+    cursor: pointer !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: var(--color-primary) !important;
+    color: var(--color-background) !important;
+    border-color: var(--color-background) !important;
+    box-shadow: var(--shadow-glow-dark) !important;
+    transform: scale(1.1) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-color: var(--color-primary) !important;
+    font-weight: bold !important;
+    color: var(--color-background) !important;
+    border-color: var(--color-background) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+    background-color: var(--color-surface) !important;
+    color: var(--color-border) !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
