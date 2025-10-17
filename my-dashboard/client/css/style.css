@@ -186,3 +186,19 @@ input[type="number"].form-control,
     border: 1px solid #2A2A2A;
     padding: 5px;
 }
+
+/* DataTables search input */
+.dataTables_wrapper .dataTables_filter input {
+    background-color: #0D2818;
+    color: #00FF41;
+    border: 2px solid #008F11;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+    background-color: #0D2818;
+    color: #00FF41;
+    box-shadow: 0 0 08px #1A4A2E;
+    outline: none;
+}
