@@ -4,10 +4,19 @@ let chartInstance = null; // Global variable to store the current chart.js insta
 
 // Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
-    // Fetch data from the backend API
-    fetch('/data') 
-        .then((response) => response.json())
-        .then((data) => {
+
+    // Fetch data from the backend API (Supabase)
+    supabase.from('tips').select('*').order('date', { ascending: true })
+        .then(({ data, error }) => {
+            if (error) {
+                console.error("Error fetching data:", error);
+                const app = document.getElementById("app");
+                if (app) {
+                    app.innerHTML = "<p>Failed to fetch data.</p>";
+                }
+                return;
+            }
+        
             // Handle case where no data is returned
             if(!data || data.length === 0) {
                 const app = document.getElementById("app");
@@ -25,14 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("chart-type-selector").onchange = () => filterAndRenderData(data);
         })
 
-        .catch((error) => {
-            // Handle fetch error
-            console.error("Error fetching data:", error);
-            const app = document.getElementById("app");
-            if (app) {
-                app.innerHTML = "<p>Failed to fetch data.</p>";
-            }
-        });
 });
 
 // Initlialize Flatpickr date pickers and category filter
@@ -154,7 +155,6 @@ function populateDataTable(data) {
     // Create a new DataTable with relevant columns
     tableElement.DataTable({
         data: data.map((item) => [
-            item.shift_id,
             item.date,
             item.day_of_week,
             item.am_or_pm,
@@ -162,7 +162,6 @@ function populateDataTable(data) {
             item.tips_earned,
         ]),
         columns: [
-            { title: "Shift ID" },
             { title: "Date" },
             { title: "Day" },
             { title: "AM or PM" },
