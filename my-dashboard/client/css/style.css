@@ -53,6 +53,12 @@ h1 {
     transform: scale(1.1);
 }
 
+.btn-success:focus,
+.btn-success:active {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
 /* Style all select/option elements */
 
 select.form-control,
