@@ -4,15 +4,25 @@
   "description": "Backend API for Tip Tracking Dashboard - Express server with Supabase integration",
   "author": "Colin Trierweiler",
   "license": "GPL-3.0",
-  "keywords": ["tips", "restaurant", "api", "express", "supabase", "postgresql"],
+  "keywords": [
+    "tips",
+    "restaurant",
+    "api",
+    "express",
+    "supabase",
+    "postgresql"
+  ],
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.75.0",
     "dotenv": "^17.0.0",
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
