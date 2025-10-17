@@ -87,7 +87,9 @@ function filterAndRenderData(data) {
 
     // Filter date by category
     const filteredData = data.filter((item) =>  {
-        const itemDate = new Date(item.date);
+        // Parse date as local date, not UTC
+        const [year, month, day] = item.date.split('-');
+        const itemDate = new Date(year, month - 1, day); // month is 0-indexed
         return (
             itemDate >= startDate &&
             itemDate <= endDate
