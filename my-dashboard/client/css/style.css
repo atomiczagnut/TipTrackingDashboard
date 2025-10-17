@@ -91,6 +91,12 @@ input[type="number"].form-control,
     padding: 8px;
 }
 
+/* Style the modal */
+.modal-content {
+    background-color: #000000;
+    border: 2px solid #2A2A2A;
+}
+
 /* Style the modal close button (X) */
 .modal-header .close {
     color: #00FF41 !important;
@@ -110,15 +116,16 @@ input[type="number"].form-control,
     padding: 5px 10px;
     border: 1px solid #2A2A2A;
     border-radius: 4px;
-    background-color: #008F11;
-    color: #000000;
+    background-color: #008F11 !important;
+    color: #000000 !important;
+    cursor: pointer !important;
     text-decoration: none;
     display: inline-block;
     transition: transform 0.3s ease-in-out;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-    background-color: #00FF41;
+    background-color: #00FF41 !important;
     color: #000000;
     border-color: #000000;
     box-shadow: 0 0 8px #2A2A2A;
@@ -187,7 +194,7 @@ input[type="number"].form-control,
     padding: 5px;
 }
 
-/* DataTables search input */
+/* DataTables search input
 .dataTables_wrapper .dataTables_filter input {
     background-color: #0D2818;
     color: #00FF41;
@@ -202,3 +209,4 @@ input[type="number"].form-control,
     box-shadow: 0 0 08px #1A4A2E;
     outline: none;
 }
+*/
