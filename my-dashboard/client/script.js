@@ -1,4 +1,5 @@
 import { supabase } from './db/supabase.js';
+import { CURRENT_USER_ID } from './config.js';
 
 let chartInstance = null; // Global variable to store the current chart.js instance
 
@@ -34,6 +35,56 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("chart-type-selector").onchange = () => filterAndRenderData(data);
         })
 
+        // Input Shift button functionality
+        const saveShiftBtn = document.getElementById("save-shift-btn");
+
+        if (saveShiftBtn) {
+            saveShiftBtn.addEventListener("click", async function() {
+                // Get form values
+                const date = document.getElementById("shift-date").value;
+                const dayOfWeek = document.getElementById("shift-day").value;
+                const amOrPm = document.getElementById("shift-period").value;
+                const hoursWorked = parseFloat(document.getElementById("shift-hours").value);
+                const tipsEarned = parseFloat(document.getElementById("shift-tips").value);
+
+                // Validate
+                if (!date || !dayOfWeek || !amOrPm || !hoursWorked || !tipsEarned) {
+                    alert("Please fill out all fields");
+                    return;
+                }
+
+                // Insert into Supabase
+                const { data, error } = await supabase
+                    .from("tips")
+                    .insert([{
+                        user_id: CURRENT_USER_ID,
+                        date: date,
+                        day_of_week: dayOfWeek,
+                        am_or_pm: amOrPm,
+                        hours_worked: hoursWorked,
+                        tips_earned: tipsEarned
+                    }])
+                    .select();
+
+                if (error) {
+                    console.error("Error saving shift:", error);
+                    alert("Failed to save shift: " + error.message);
+                    return;
+                }
+
+                console.log("Shift saved succesfully:", data);
+                alert("Shift saved successfully!");
+
+                // Close modal
+                $("#shiftModal").modal("hide");
+
+                // Clear form
+                document.getElementById("shift-form").reset();
+
+                // Refresh the page to show new data
+                window.location.reload();
+            })
+        }
 });
 
 // Initlialize Flatpickr date pickers and category filter
