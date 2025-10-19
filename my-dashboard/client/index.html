@@ -11,25 +11,38 @@
         <title>Tip Tracking Dashboard</title>
     </head>
     <body>
-        <div class="container">
-            <!-- Login/Logout Section -->
-             <div id="auth-section" class="text-center my-3">
-                <div id="logged-out" style="display: none;">
-                    <p>Please sign in to track your tips</p>
-                    <button id="google-login-btn" class="btn btn-success">
-                        Sign in with Google
-                    </button>
-                </div>
-                <div id="logged-in" style="display: none;">
-                    <p>Welcome, <span id="user-email"></span></p>
-                    <button id="logout-btn" class="btn btn-secondary">
-                        Sign Out
-                    </button>
-                </div>
-             </div>
-
-            <!-- Centered Heading -->
-            <h1 class="text-center">Tip Tracking Dashboard</h1>
+        <!-- Full-width Header -->
+        <header class="dashboard-header">
+            <div class="container-fluid px-0">
+                <div class="row align-items-center justify-content-between">
+                    <!-- Left side -->
+                    <div class="col-1">
+                        <!-- Reseverd for future use-->
+                    </div>
+                    <!-- Centered title -->
+                    <div col="text-center">
+                        <h1 class="mb-0">Tip Tracking Dashboard</h1>
+                    </div>
+                    <!-- Right side - Auth buttons -->
+                    <div class="col-auto">
+                        <div id="auth-buttons" class="d-flex align-items-right">
+                            <div id="logged-out" style="display: none;">
+                                <buton id="sign-up-btn" class="btn btn-success">
+                                    Sign up
+                                </buton>
+                                <button id="google-login-btn" class="btn btn-success">
+                                    Log in
+                                </button>
+                            </div>
+                            <div id="logged-in" style="display: none;">
+                                <span id="user-email" class="mr-2"></span>
+                                <button id="logout-btn" class="btn btn-secondary">
+                                    Sign Out
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </header> 
 
             <!-- Input Shift Button -->
             <div class="text-center my-3">

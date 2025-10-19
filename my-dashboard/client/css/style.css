@@ -101,6 +101,26 @@ h2 {
 }
 
 /* ========================================
+   HEADER
+   ======================================== */
+header {
+    background-color: #0D1117;
+    padding: 5px;
+}
+
+   header h1 {
+    margin: 0 !important;
+}
+
+#auth-buttons {
+    text-align: right;
+}
+
+#auth-buttons .btn {
+    margin: 0 5px 0 0;
+}
+
+/* ========================================
    BUTTONS
    ======================================== */
 .btn {
@@ -311,9 +331,6 @@ input[type="number"] {
     outline: none;
 }
 
-/* ========================================
-   DATATABLES - Pagination
-   ======================================== */
 /* ========================================
    DATATABLES - Pagination (NUCLEAR OPTION)
    ======================================== */
