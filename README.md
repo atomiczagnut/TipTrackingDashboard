@@ -150,8 +150,8 @@ my-dashboard/
 - ✅ Visualize earnings over time with charts
 - ✅ View raw data in sortable tables
 - ✅ Calculate key metrics (total tips, averages)
-- 🚧 Input new shifts via modal form (in progress)
-- 🚧 Google authentication (planned)
+- ✅ Input new shifts via modal form (in progress)
+- ✅ Google authentication (planned)
 - 🚧 Mobile app version (planned)
 
 ## Database Schema
