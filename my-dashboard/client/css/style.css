@@ -121,6 +121,23 @@ header {
 }
 
 /* ========================================
+   FOOTER
+   ======================================== */
+footer {
+    text-align: center;
+}
+
+footer a {
+    color: var(--color-primary);
+    text-decoration: none !important;
+}
+
+footer a:hover {
+    color: var(--color-input-focus);
+}
+
+
+/* ========================================
    BUTTONS
    ======================================== */
 .btn {
