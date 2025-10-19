@@ -1,4 +1,4 @@
-import { supabase } from './db/supbase.js';
+import { supabase } from './db/supabase.js';
 
 // Check if user is logged in
 export async function checkAuth() {

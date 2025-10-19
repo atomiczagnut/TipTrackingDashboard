@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 // ====================
 // Authentication
 // ==================== 
-async function intializeAuth() {
+async function initializeAuth() {
     const user = await checkAuth();
 
     const loggedInSection = document.getElementById("logged-in");
