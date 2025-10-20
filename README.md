@@ -42,7 +42,7 @@ I also changed the CSS to fit my brand (green-text on a black background).
 ## Setup & Installation
 
 ### Prerequisites
-- Node.js 18+ installed
+- Node.js 24+ installed
 - A Supabase account (free tier works great)
 
 ### 1. Clone the Repository
