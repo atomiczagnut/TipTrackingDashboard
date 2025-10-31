@@ -2,7 +2,7 @@
 // Imports
 // ===============
 import { supabase } from './db/supabase.js';
-import { checkAuth, signInWithGoogle, signOut } from './auth.js';
+import { checkAuth, signUp, signIn, signInWithGoogle, signOut } from './auth.js';
 
 // =================
 // Global Variables
@@ -26,15 +26,21 @@ async function initializeAuth() {
     const loggedInSection = document.getElementById("logged-in");
     const loggedOutSection = document.getElementById("logged-out");
     const userEmailSpan = document.getElementById("user-email");
-    const googleLoginBtn = document.getElementById("google-login-btn");
     const logoutBtn = document.getElementById("logout-btn");
+    
+    // Auth buttons
+    const signupBtn = document.getElementById("signup-btn");
+    const loginBtn = document.getElementById("login-btn");
 
     if (user) {
         // User is logged in
         currentUserId = user.id;
         loggedInSection.style.display = "block";
         loggedOutSection.style.display = "none";
-        userEmailSpan.textContent = user.email;
+        
+        if (userEmailSpan) {
+            userEmailSpan.textContent = user.email;
+        }
 
         // Initialize the dashboard
         await initializeApp();
@@ -45,13 +51,77 @@ async function initializeAuth() {
         loggedOutSection.style.display = "block"; 
     }
 
+    // Setup sign-up button to open modal
+    if (signupBtn) {
+        signupBtn.addEventListener("click", () => {
+            $("#signupModal").modal("show");
+        });
+    }
+    
+    // Setup sign-up modal form handlers
+    setupSignupModal();
+    
     // Setup up auth button handlers
-    if (googleLoginBtn) {
-        googleLoginBtn.addEventListener("click", signInWithGoogle);
+    if (loginBtn) {
+        loginBtn.addEventListener("click", signIn);
     }
 
     if (logoutBtn) {
         logoutBtn.addEventListener("click", signOut);
+    }
+}
+
+// Setup sign-up modal form
+const setupSignupModal = () => {
+    // Get form and button
+    const signupForm = document.getElementById("signup-form");
+    const emailSignupBtn = document.getElementById("email-submit-btn");
+
+    // Email/Password sign-up button (outside form)
+    if (emailSignupBtn && signupForm) {
+        emailSignupBtn.addEventListener("click", async (e) => {
+            e.preventDefault();
+
+            // HTML5 validation
+            if (!signupForm.checkValidity()) {
+                signupForm.reportValidity(); // Show validation errors
+                return;
+            }
+
+            const email = document.getElementById("signup-email").value;
+            const password = document.getElementById("signup-password").value;
+            const confirmPassword = document.getElementById("signup-password-confirm").value;
+            const termsCheckbox = document.getElementById("terms-checkbox");
+
+            // Validation
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters!");
+                return;
+            }
+
+            if (!termsCheckbox.checked) {
+                alert("You must agree to the Terms of Service and Privacy Policy to continue.");
+            }
+
+            // Call the signUp function from auth.js
+            const user = await signUp(email, password);
+
+            if (user) {
+                $("#signupModal").modal("hide");
+                signupForm.reset();
+            }
+        });
+    }
+
+    // Google sign-up button
+    const googleSignupBtn = document.getElementById("google-signup-btn");
+    if (googleSignupBtn) {
+        googleSignupBtn.addEventListener("click", signInWithGoogle);
     }
 }
 

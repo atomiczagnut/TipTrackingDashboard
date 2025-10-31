@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link rel="stylesheet" href="css/style.css">
@@ -27,10 +28,10 @@
                     <div class="col-auto">
                         <div id="auth-buttons" class="d-flex justify-content-end">
                             <div id="logged-out" style="display: none;">
-                                <button id="sign-up-btn" class="btn btn-success" data-toggle="modal" data-target="#signupModal">
+                                <button id="signup-btn" class="btn btn-success" data-toggle="modal" data-target="#signupModal">
                                     Sign up
                                 </button>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#loginModal">
+                                <button id="login-btn" class="btn btn-success" data-toggle="modal" data-target="#loginModal">
                                     Log in
                                 </button>
                             </div>
@@ -112,40 +113,49 @@
             <!-- New User Modal -->
              <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="signupModalLabel">Create Your Account</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="signup-form">
-                            <div class="form-group">
-                                <label for="signup-email">Email</label>
-                                <input type="email" class="form-control" id="signup-email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="signup-password">Password</label>
-                                <input type="password" class="form-control" id="signup-password" minlength="6" required>
-                                <small class="form-text text-muted">Minimum 6 characters</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="signup-password-confirm">Confirm Password</label>
-                                <input type="password" class="form-control" id="signup-password-confirm" required>
-                            </div>
-                            <button type="submit" class="btn btn-success btn-block">Sign Up</button>
-                        </form>
-
-                        <div class="text-center my-3">
-                            <span>OR</span>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="signupModalLabel">Create Your Account</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
+                        <div class="modal-body">
+                            <form id="signup-form">
+                                <div class="form-group">
+                                    <label for="signup-email">Email</label>
+                                    <input type="email" class="form-control" id="signup-email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signup-password">Password</label>
+                                    <input type="password" class="form-control" id="signup-password" minlength="8" required>
+                                    <small class="form-text text-muted">Minimum 8 characters</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signup-password-confirm">Confirm Password</label>
+                                    <input type="password" class="form-control" id="signup-password-confirm" required>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="terms-checkbox" required>
+                                    <label class="form-check-label" for="terms-checkbox">
+                                        I agree the the <a href="/tos.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>
+                                    </label>
+                                </div> 
+                            </form>
 
-                        <button id="google-signup-btn" class="btn btn-danger btn-block">
-                            Continue with Google
-                        </button>
+                            <button id="email-signup-btn" class="btn btn-success btn-block">Sign Up</button>
 
-                        <div class="text-center mt-3">
-                            <small>Already have an account? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Login</a></small>
+                            <div class="text-center my-3">
+                                <span>OR</span>
+                            </div>
+
+                            <button id="google-signup-btn" class="btn btn-primary btn-block">
+                                <i class="fab fa-google"></i> Sign Up with Google
+                            </button>
+
+                            <div class="text-center mt-3">
+                                <small>Already have an account? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Login</a></small>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -154,35 +164,37 @@
             <!-- Login Modal -->
             <div class="modal fade" tabindex="-1" role="dialog" aria-labelled by="loginModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabel">Log In</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="login-form">
-                            <div class="form-group">
-                                <label for="login-email">Email</label>
-                                <input type="email" class="form-control" id="login-email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="login-password">Password</label>
-                                <input type="password" class="form-control" id="login-password" required>
-                            </div>
-                            <button type="submit" class="btn btn-success btn-block">Log In</button>
-                        </form>
-
-                        <div class="text-center my-3">
-                            <span>OR</span>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel">Log In</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
+                        <div class="modal-body">
+                            <form id="login-form">
+                                <div class="form-group">
+                                    <label for="login-email">Email</label>
+                                    <input type="email" class="form-control" id="login-email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="login-password">Password</label>
+                                    <input type="password" class="form-control" id="login-password" required>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-block">Log In</button>
+                            </form>
 
-                        <button id="google-signup-btn" class="btn btn-danger btn-block">
-                            Continue with Google
-                        </button>
+                            <div class="text-center my-3">
+                                <span>OR</span>
+                            </div>
 
-                        <div class="text-center mt-3">
-                            <small>Don't have an account? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signupModal">Sign Up</a></small>
+                            <button id="google-signup-btn" class="btn btn-danger btn-block">
+                                Continue with Google
+                            </button>
+
+                            <div class="text-center mt-3">
+                                <small>Don't have an account? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signinModal">Sign Up</a></small>
+                            </div>
                         </div>
                     </div>
                 </div>
