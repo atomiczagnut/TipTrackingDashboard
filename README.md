@@ -36,7 +36,7 @@ I also changed the CSS to fit my brand (green-text on a black background).
 - Cloud-hosted with real-time capabilities
 - Row Level Security (RLS) enabled
 
-### Authentication (Planned)
+### Authentication
 - Supabase Auth with Google OAuth
 
 ## Setup & Installation
