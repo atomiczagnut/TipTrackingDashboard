@@ -91,6 +91,7 @@ const setupSignupModal = () => {
             const email = document.getElementById("signup-email").value;
             const password = document.getElementById("signup-password").value;
             const confirmPassword = document.getElementById("signup-password-confirm").value;
+            const termsCheckbox = document.getElementById("terms-checkbox");
 
             // Validation
             if (password !== confirmPassword) {
@@ -101,6 +102,10 @@ const setupSignupModal = () => {
             if (password.length < 8) {
                 alert("Password must be at least 8 characters!");
                 return;
+            }
+
+            if (!termsCheckbox.checked) {
+                alert("You must agree to the Terms of Service and Privacy Policy to continue.");
             }
 
             // Call the signUp function from auth.js
