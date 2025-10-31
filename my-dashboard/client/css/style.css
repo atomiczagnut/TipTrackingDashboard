@@ -179,6 +179,79 @@ footer a:hover {
     outline: none !important;
 }
 
+/*=========================================
+  MODALS
+  ========================================= */
+.modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: calc(100vh - 200px); /* Make room for the header and the footer */
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.modal-body .btn-block {
+    width: 85%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+.modal.fade .modal-dialog {
+    transform: translate(0 ,0);
+}
+
+.modal.show .modal-dialog {
+    transform: translate(0, 0);
+}
+
+.modal-body form,
+.modal-body .form-group {
+    width: 100%;
+    max-width: 100%;
+}
+
+.modal-body .text-center {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#google-signup-btn,
+#google-login-btn {
+    width: 85%;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 576px) {
+    .modal-dialog {
+        max-width: 95%;
+        margin: 0.5rem auto;
+    }
+
+    .modal-body {
+        max-height: calc(100vh - 150px);
+        padding: 1rem;
+    }
+
+    .modal-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .modal-footer {
+        padding: 0.75rem 1rem;
+    }
+}
+
+
 /* ========================================
    FORMS - Inputs, Selects, Textareas
    ======================================== */
