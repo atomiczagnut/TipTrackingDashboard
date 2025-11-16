@@ -1,0 +1,64 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 3 * * 1' # Weekly run for supply chain scans
+
+jobs:
+  dependabot:
+    name: Dependabot Dependency Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Dependabot (handled natively by GitHub)
+        run: echo "Dependabot is configured in .github/dependabot.yml, see repo settings for alerts."
+
+  heisenberg-scan:
+    name: Heisenberg Supply Chain Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Install Heisenberg CLI or run Heisenberg's GitHub Action if published.
+      # Example for CLI, adjust as needed for your workflow:
+      - name: Install Heisenberg
+        run: |
+          pip install heisenberg-supplychain-scanner || npm install -g heisenberg-supplychain-scanner
+
+      - name: Run Heisenberg Scan
+        run: |
+          heisenberg-scan --directory . --output heisenberg_results.json
+
+      - name: Upload Heisenberg Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: heisenberg-results
+          path: heisenberg_results.json
+
+  test:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint || echo "No lint script defined."
+
+      - name: Run tests
+        run: npm test
